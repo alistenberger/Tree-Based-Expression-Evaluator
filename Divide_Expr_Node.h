@@ -12,9 +12,7 @@ public:
 
   virtual int eval (int num1, int num2); 
 
-  virtual void print_preorder (std::ostream &) = 0; 
-
-  virtual void print_inorder (std::ostream &) = 0; 
+  virtual void accept (Expr_Node_Visitor & v);
 };
 
 #endif // !defined _DIVIDE_EXPR_NODE_H_

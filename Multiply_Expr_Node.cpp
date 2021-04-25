@@ -14,3 +14,7 @@ int Multiply_Expr_Node::eval (int num1, int num2)
 {
   return num1 * num2;
 }
+
+void Multiply_Expr_Node::accept (Expr_Node_Visitor & v) { 
+  v.Visit_Multiply_Node (*this); 
+} 

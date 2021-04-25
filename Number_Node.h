@@ -14,12 +14,11 @@ public:
   virtual int eval (void);
   // use template method to provide common 
   // behavior for all binary nodes 
-  virtual void print_preorder (std::ostream &); 
-
-  virtual void print_inorder (std::ostream &); 
+  virtual void accept (Expr_Node_Visitor & v); 
 
 protected: 
  Expr_Node * parent_Node_; 
+ int value_;
 };
 
 #endif // !defined _NUMBER_NODE_H_

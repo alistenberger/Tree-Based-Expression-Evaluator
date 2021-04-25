@@ -11,13 +11,3 @@ Binary_Expr_Node::~Binary_Expr_Node (void)
 {
   //Nothing allocated
 } 
-
-void Binary_Expr_Node::print_preorder (std::ostream & print)
-{
-  //nothing here yet
-}
-
-void Binary_Expr_Node::print_inorder (std::ostream & print)
-{
-  //nothing here yet
-}

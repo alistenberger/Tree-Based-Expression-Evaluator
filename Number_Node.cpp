@@ -17,12 +17,6 @@ int Number_Node::eval (void)
   return this->value_;
 }
 
-void Number_Node::print_preorder (std::ostream & print)
-{
-  //Nothing here yet
-}
-
-void Number_Node::print_inorder (std::ostream & print)
-{
-  //Nothing here yet
-}
+void Number_Node::accept (Expr_Node_Visitor & v) { 
+  v.Visit_Number_Node (*this); 
+} 

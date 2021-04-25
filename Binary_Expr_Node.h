@@ -11,14 +11,10 @@ public:
 
   virtual ~Binary_Expr_Node (void); 
   // ... 
-  virtual int eval (void);
-  // use template method to provide common 
-  // behavior for all binary nodes 
+  virtual int eval (void) = 0;
 
-  virtual void print_preorder (std::ostream &); 
+  virtual void accept (Expr_Node_Visitor & v) = 0;
 
-  virtual void print_inorder (std::ostream &);
-   
 protected: 
  Expr_Node * right_; 
  Expr_Node * left_; 
