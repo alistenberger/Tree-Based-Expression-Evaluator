@@ -6,7 +6,7 @@
 
 class Expr_Tree_Builder : public Expr_Builder { 
   Expr_Tree_Builder (void); 
-  virtual ~Expr_Builder_Tree (void); 
+  virtual ~Expr_Tree_Builder (void); 
   virtual void start_expression (void);
   virtual void build_number (int n); 
   virtual void build_add_operator (void); 
@@ -19,7 +19,7 @@ class Expr_Tree_Builder : public Expr_Builder {
   Expr_Tree * get_expression (void);
 private: 
  // current state of expression tree 
-  Expr_Tree * tree_; 
+  Expr_Tree * tree_;
  // other variables to coordinate build process 
 }; 
 

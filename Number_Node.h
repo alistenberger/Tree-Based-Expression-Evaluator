@@ -16,6 +16,14 @@ public:
   // behavior for all binary nodes 
   virtual void accept (Expr_Node_Visitor & v); 
 
+	virtual Expr_Node * getLeft (void);
+	
+  virtual Expr_Node * getRight (void);
+	
+	virtual void setLeft (Expr_Node * left);
+	
+  virtual void setRight (Expr_Node * right);
+
 protected: 
  Expr_Node * parent_Node_; 
  int value_;
