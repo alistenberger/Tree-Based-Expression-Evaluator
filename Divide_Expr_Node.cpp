@@ -10,8 +10,10 @@ Divide_Expr_Node::~Divide_Expr_Node (void)
   //Nothing here
 }
 
-int Divide_Expr_Node::eval (int num1, int num2)
+int Divide_Expr_Node::eval (void)
 {
+  int num1 = this->getLeft ()->eval ();
+  int num2 = this->getRight ()->eval();
   return num1 / num2;
 }
 

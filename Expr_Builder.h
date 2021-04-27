@@ -5,6 +5,8 @@
 
 class Expr_Builder { 
 public: 
+  Expr_Builder (void);
+  ~Expr_Builder (void);
   virtual void start_expression (void) = 0; 
   virtual void build_number (int n) = 0; 
   virtual void build_add_operator (void) = 0; 

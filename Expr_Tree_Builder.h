@@ -16,6 +16,7 @@ class Expr_Tree_Builder : public Expr_Builder {
   virtual void build_modulus_operator (void);
   virtual void build_open_parenthesis (void); 
   virtual void build_close_parenthesis (void); 
+  void insert_Node (Expr_Node * node);
   Expr_Tree * get_expression (void);
 private: 
  // current state of expression tree 

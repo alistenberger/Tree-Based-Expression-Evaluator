@@ -10,7 +10,7 @@ public:
 
   virtual ~Multiply_Expr_Node (void); 
 
-  virtual int eval (int num1, int num2); 
+  virtual int eval (void); 
 
   virtual void accept (Expr_Node_Visitor & v);
 };
