@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Expr_Node_Visitor.h"
+class Expr_Node_Visitor;
 
 class Expr_Node { 
 public: 
@@ -22,6 +23,8 @@ public:
 	virtual void setRight (Expr_Node * right) = 0;
 
   virtual void accept (Expr_Node_Visitor & v) = 0;
+
+  virtual int get_Precedence (void) = 0;
 }; 
 
 #endif // !defined _EXPR_NODE_H_

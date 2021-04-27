@@ -24,9 +24,11 @@ public:
 	
   virtual void setRight (Expr_Node * right);
 
+  virtual int get_Precedence (void);
+
 protected: 
- Expr_Node * parent_Node_; 
  int value_;
+ int precedence_ = 0;
 };
 
 #endif // !defined _NUMBER_NODE_H_

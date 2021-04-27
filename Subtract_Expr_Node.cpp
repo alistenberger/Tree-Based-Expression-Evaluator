@@ -19,4 +19,9 @@ int Subtract_Expr_Node::eval (void)
 
 void Subtract_Expr_Node::accept (Expr_Node_Visitor & v) { 
   v.Visit_Subtract_Node (*this); 
-} 
+}
+
+int Subtract_Expr_Node::get_Precedence (void)
+{
+  return this->precedence_;
+}

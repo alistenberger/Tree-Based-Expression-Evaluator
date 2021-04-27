@@ -20,3 +20,7 @@ int Add_Expr_Node::eval (void)
 void Add_Expr_Node::accept (Expr_Node_Visitor & v) { 
   v.Visit_Add_Node (*this); 
 } 
+
+int Add_Expr_Node::get_Precedence (void) {
+  return this->precedence_;
+}

@@ -1,8 +1,7 @@
 #include "Number_Node.h"
 
 Number_Node::Number_Node (int number)
-: parent_Node_ (nullptr),
-value_ (number)
+: value_ (number)
 {
   //Nothing here
 }
@@ -39,4 +38,9 @@ void Number_Node::setLeft (Expr_Node * left)
 void Number_Node::setRight (Expr_Node * right)
 {
   //do nothing
+}
+
+int Number_Node::get_Precedence (void)
+{
+  return this->precedence_;
 }

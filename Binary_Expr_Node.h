@@ -23,6 +23,8 @@ public:
 	
   virtual void setRight (Expr_Node * right);
 
+  virtual int get_Precedence (void) = 0;
+
 protected: 
  Expr_Node * right_; 
  Expr_Node * left_; 

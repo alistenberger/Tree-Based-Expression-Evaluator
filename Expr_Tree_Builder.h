@@ -3,20 +3,23 @@
 
 #include "Expr_Builder.h"
 #include "Expr_Tree.h"
+#include "Queue.h"
+#include "Stack.h"
 
 class Expr_Tree_Builder : public Expr_Builder { 
+public:
   Expr_Tree_Builder (void); 
   virtual ~Expr_Tree_Builder (void); 
   virtual void start_expression (void);
-  virtual void build_number (int n); 
-  virtual void build_add_operator (void); 
-  virtual void build_subtract_operator (void); 
-  virtual void build_multiply_operator (void);
-  virtual void build_divide_operator (void );
-  virtual void build_modulus_operator (void);
-  virtual void build_open_parenthesis (void); 
-  virtual void build_close_parenthesis (void); 
-  void insert_Node (Expr_Node * node);
+  virtual Expr_Node * build_number (int n); 
+  virtual Expr_Node * build_add_operator (void); 
+  virtual Expr_Node * build_subtract_operator (void); 
+  virtual Expr_Node * build_multiply_operator (void);
+  virtual Expr_Node * build_divide_operator (void );
+  virtual Expr_Node * build_modulus_operator (void);
+  virtual Expr_Node * build_open_parenthesis (void); 
+  virtual Expr_Node * build_close_parenthesis (void); 
+  void build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_Node *> & stack);
   Expr_Tree * get_expression (void);
 private: 
  // current state of expression tree 

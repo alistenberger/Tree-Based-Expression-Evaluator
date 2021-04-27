@@ -7,7 +7,8 @@ class Expr_Tree {
 public:
   Expr_Tree (void);
   ~Expr_Tree (void);
-  void insert_Node (Expr_Node * node);
+  void set_Head_Node (Expr_Node * node);
+  Expr_Node * get_Head_Node (void);
 
 protected:
   Expr_Node * headNode_;

@@ -17,6 +17,12 @@ int Divide_Expr_Node::eval (void)
   return num1 / num2;
 }
 
-void Divide_Expr_Node::accept (Expr_Node_Visitor & v) { 
+void Divide_Expr_Node::accept (Expr_Node_Visitor & v)
+{ 
   v.Visit_Divide_Node (*this); 
 } 
+
+int Divide_Expr_Node::get_Precedence (void)
+{
+  return this->precedence_;
+}

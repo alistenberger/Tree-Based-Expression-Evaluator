@@ -14,6 +14,7 @@
 #include "Expr_Tree_Builder.h"
 #include "Expr_Node_Visitor.h"
 #include "Expr_Tree.h"
+#include "Queue.h"
 
 /**
  * @class Calculator
@@ -39,7 +40,7 @@ public:
    * 
    * @retval        returns true on successful completion
    */
-  bool infix_to_postfix (const std::string & infix, Expr_Tree_Builder & builder, Array <Expr_Node *> & postfix);
+  bool infix_to_postfix (const std::string & infix, Expr_Tree_Builder & builder, Queue <Expr_Node *> & postfix);
   
   /**
    * Evaluates a postfix expression utilizing a stack
@@ -48,7 +49,7 @@ public:
    * 
    * @retval        returns true on successful completion
    */
-  bool evaluate_postfix (Array <Expr_Node *> & postfix, Stack <int> & stack);
+  int evaluate_tree (Expr_Tree_Builder & builder);
 
   /**
    * Evaluates an input token and returns a Expression Command object

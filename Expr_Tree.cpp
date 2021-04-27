@@ -11,21 +11,12 @@ Expr_Tree::~Expr_Tree (void)
   //nothing here
 }
 
-void Expr_Tree::insert_Node (Expr_Node * node)
+void Expr_Tree::set_Head_Node (Expr_Node * node)
 {
-  if (this->headNode_ == nullptr) {
-    this->headNode_ = node;
-  }
-  else if (node->get_Precedence () > this->headNode_->get_Precedence ()) {
-    Expr_Node * tempNode = this->headNode_;
-    this->headNode_ = node;
-    node->setLeft (tempNode);
-  } else if (node->get_Precedence () <= this->headNode_->get_Precedence ()) {
-    Expr_Node * curNode = this->headNode_;
-    if (curNode->getLeft () == nullptr) {
-      curNode->setLeft (node);
-    } else if (curNode->getRight () == nullptr) {
-      curNode->setRight (node);
-    } else
-  }
+  this->headNode_ = node;
+}
+
+Expr_Node * Expr_Tree::get_Head_Node (void)
+{
+  return this->headNode_;
 }

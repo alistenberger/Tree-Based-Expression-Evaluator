@@ -15,12 +15,12 @@ public:
   Expr_Node_Visitor (void);
   virtual ~Expr_Node_Visitor (void); 
   // Methods for visiting concrete nodes 
-  virtual void Visit_Add_Node (const Add_Expr_Node & node) = 0; 
-  virtual void Visit_Subtract_Node (const Subtract_Expr_Node & node) = 0;
-  virtual void Visit_Multiply_Node (const Multiply_Expr_Node & node) = 0;
-  virtual void Visit_Divide_Node (const Divide_Expr_Node & node) = 0;
-  virtual void Visit_Modulus_Node (const Modulus_Expr_Node & node) = 0;
-  virtual void Visit_Number_Node (const Number_Node & node) = 0; 
+  virtual void Visit_Add_Node (Add_Expr_Node & node) = 0; 
+  virtual void Visit_Subtract_Node (Subtract_Expr_Node & node) = 0;
+  virtual void Visit_Multiply_Node (Multiply_Expr_Node & node) = 0;
+  virtual void Visit_Divide_Node (Divide_Expr_Node & node) = 0;
+  virtual void Visit_Modulus_Node (Modulus_Expr_Node & node) = 0;
+  virtual void Visit_Number_Node (Number_Node & node) = 0; 
 };
 
 #endif // !defined _EXPR_NODE_VISITOR_H_

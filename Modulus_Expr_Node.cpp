@@ -19,4 +19,9 @@ int Modulus_Expr_Node::eval (void)
 
 void Modulus_Expr_Node::accept (Expr_Node_Visitor & v) { 
   v.Visit_Modulus_Node (*this); 
-} 
+}
+
+int Modulus_Expr_Node::get_Precedence (void)
+{
+  return this->precedence_;
+}

@@ -13,6 +13,12 @@ public:
   virtual int eval (void); 
 
   virtual void accept (Expr_Node_Visitor & v);
+
+  virtual int get_Precedence (void);
+
+protected:
+
+  int precedence_ = 1;
 };
 
 #endif // !defined _ADD_EXPR_NODE_H_

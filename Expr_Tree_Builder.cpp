@@ -16,55 +16,64 @@ void Expr_Tree_Builder::start_expression (void)
   this->tree_ = new Expr_Tree ();
 }
 
-void Expr_Tree_Builder::build_number (int n)
+Expr_Node * Expr_Tree_Builder::build_number (int n)
 {
-  Expr_Node * numNode = new Number_Node (n);
-  this->insert_Node (numNode);
+  return new Number_Node (n);
 }
 
-void Expr_Tree_Builder::build_add_operator (void)
+Expr_Node * Expr_Tree_Builder::build_add_operator (void)
 {
-  Expr_Node * addNode = new Add_Expr_Node ();
-  this->insert_Node (addNode);
+  return new Add_Expr_Node ();
 }
 
-void Expr_Tree_Builder::build_subtract_operator (void)
+Expr_Node * Expr_Tree_Builder::build_subtract_operator (void)
 {
-  Expr_Node * subNode = new Subtract_Expr_Node ();
-  this->insert_Node (subNode);
+  return new Subtract_Expr_Node ();
 }
 
-void Expr_Tree_Builder::build_multiply_operator (void)
+Expr_Node * Expr_Tree_Builder::build_multiply_operator (void)
 {
-  Expr_Node * multNode = new Multiply_Expr_Node ();
-  this->insert_Node (multNode);
+  return new Multiply_Expr_Node ();
 }
 
-void Expr_Tree_Builder::build_divide_operator (void)
+Expr_Node * Expr_Tree_Builder::build_divide_operator (void)
 {
-  Expr_Node * divNode = new Divide_Expr_Node ();
-  this->insert_Node (divNode);
+  return new Divide_Expr_Node ();
 }
 
-void Expr_Tree_Builder::build_modulus_operator (void)
+Expr_Node * Expr_Tree_Builder::build_modulus_operator (void)
 {
-  Expr_Node * modNode = new Modulus_Expr_Node ();
-  this->insert_Node (modNode);
+  return new Modulus_Expr_Node ();
 }
 
-void Expr_Tree_Builder::build_open_parenthesis (void)
+Expr_Node * Expr_Tree_Builder::build_open_parenthesis (void)
 {
   //Not having parenthesis objects, delete. Was just on slides
 }
 
-void Expr_Tree_Builder::build_close_parenthesis (void)
+Expr_Node * Expr_Tree_Builder::build_close_parenthesis (void)
 {
   //Not having parenthesis objects, delete. Was just on slides
 } 
 
-void Expr_Tree_Builder::insert_Node (Expr_Node * node)
+void Expr_Tree_Builder::build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_Node *> & stack)
 {
-  this->tree_->insert_Node (node);
+  while (!postfix.is_empty ()) {
+    Expr_Node * tempNode = postfix.dequeue ();
+    if (tempNode->get_Precedence () == 0) {
+      stack.push (tempNode);
+    } else {
+      Expr_Node * tempRight = stack.top ();
+      stack.pop ();
+      Expr_Node * tempLeft = stack.top ();
+      stack.pop ();
+      tempNode->setLeft (tempLeft);
+      tempNode->setRight (tempRight);
+      stack.push (tempNode);
+    }
+  }
+  this->tree_->set_Head_Node (stack.top ());
+  stack.pop ();
 }
 
 Expr_Tree * Expr_Tree_Builder::get_expression (void)

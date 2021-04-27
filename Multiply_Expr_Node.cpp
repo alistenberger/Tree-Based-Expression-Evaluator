@@ -19,4 +19,9 @@ int Multiply_Expr_Node::eval (void)
 
 void Multiply_Expr_Node::accept (Expr_Node_Visitor & v) { 
   v.Visit_Multiply_Node (*this); 
-} 
+}
+
+int Multiply_Expr_Node::get_Precedence (void)
+{
+  return this->precedence_;
+}
