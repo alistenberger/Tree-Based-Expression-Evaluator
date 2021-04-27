@@ -3,7 +3,8 @@
 
 #include "Binary_Expr_Node.h"
 
-class Multiply_Expr_Node : public Binary_Expr_Node { 
+class Multiply_Expr_Node : public Binary_Expr_Node 
+{ 
 public: 
 
   Multiply_Expr_Node (void); 

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Expr_Node_Visitor.h"
-class Expr_Node_Visitor;
 
 class Expr_Node { 
 public: 

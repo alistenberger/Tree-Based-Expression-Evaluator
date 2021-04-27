@@ -2,9 +2,9 @@
 #define _SUBTRACT_EXPR_NODE_H_
 
 #include "Binary_Expr_Node.h"
-class Expr_Node_Visitor;
 
-class Subtract_Expr_Node : public Binary_Expr_Node { 
+class Subtract_Expr_Node : public Binary_Expr_Node 
+{ 
 public: 
 
   Subtract_Expr_Node (void); 

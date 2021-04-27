@@ -1,5 +1,6 @@
 #include "Number_Node.h"
 
+
 Number_Node::Number_Node (int number)
 : value_ (number)
 {

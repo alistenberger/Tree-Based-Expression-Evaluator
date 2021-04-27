@@ -125,7 +125,6 @@ int Calculator::run (void) {
     }
     std::cout << std::endl << "Processing..." << std::endl << std::endl;
     Stack <Expr_Node *> buildStack;
-    Stack <int> factoryStack = Stack <int> ();
     Expr_Tree_Builder builder;
     Queue <Expr_Node *> postfix;
     this->infix_to_postfix (infix, builder, postfix);

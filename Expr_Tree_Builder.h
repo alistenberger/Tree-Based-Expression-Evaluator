@@ -5,18 +5,26 @@
 #include "Expr_Tree.h"
 #include "Queue.h"
 #include "Stack.h"
+#include "Expr_Node.h"
+#include "Binary_Expr_Node.h"
+#include "Add_Expr_Node.h"
+#include "Subtract_Expr_Node.h"
+#include "Multiply_Expr_Node.h"
+#include "Divide_Expr_Node.h"
+#include "Modulus_Expr_Node.h"
+#include "Number_Node.h"
 
 class Expr_Tree_Builder : public Expr_Builder { 
 public:
   Expr_Tree_Builder (void); 
   virtual ~Expr_Tree_Builder (void); 
   virtual void start_expression (void);
-  virtual Expr_Node * build_number (int n); 
-  virtual Expr_Node * build_add_operator (void); 
-  virtual Expr_Node * build_subtract_operator (void); 
-  virtual Expr_Node * build_multiply_operator (void);
-  virtual Expr_Node * build_divide_operator (void );
-  virtual Expr_Node * build_modulus_operator (void);
+  virtual Number_Node * build_number (int n); 
+  virtual Add_Expr_Node * build_add_operator (void); 
+  virtual Subtract_Expr_Node * build_subtract_operator (void); 
+  virtual Multiply_Expr_Node * build_multiply_operator (void);
+  virtual Divide_Expr_Node * build_divide_operator (void );
+  virtual Modulus_Expr_Node * build_modulus_operator (void);
   virtual Expr_Node * build_open_parenthesis (void); 
   virtual Expr_Node * build_close_parenthesis (void); 
   void build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_Node *> & stack);

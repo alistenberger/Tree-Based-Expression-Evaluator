@@ -1,14 +1,14 @@
 #ifndef _EXPR_NODE_VISITOR_H_
 #define _EXPR_NODE_VISITOR_H_
 
-#include "Expr_Node.h"
-#include "Binary_Expr_Node.h"
-#include "Add_Expr_Node.h"
-#include "Subtract_Expr_Node.h"
-#include "Multiply_Expr_Node.h"
-#include "Divide_Expr_Node.h"
-#include "Modulus_Expr_Node.h"
-#include "Number_Node.h"
+class Expr_Node;
+class Binary_Expr_Node;
+class Add_Expr_Node;
+class Subtract_Expr_Node;
+class Multiply_Expr_Node;
+class Divide_Expr_Node;
+class Modulus_Expr_Node;
+class Number_Node;
 
 class Expr_Node_Visitor { 
 public:
