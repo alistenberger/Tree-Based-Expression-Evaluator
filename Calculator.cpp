@@ -27,29 +27,39 @@ bool Calculator::infix_to_postfix (const std::string & infix, Expr_Tree_Builder 
     //Function evaluates a token and returns the corresponding Expr_Node
     //If a token is an opening parenthesis, an array tracking parenthesis and operators contained within the parenthesis is incremented
     if (token == "(") {
-      if (parenthesisTracker.size () == 0) {
-        parenthesisTracker.append (0);
-      } else {
-        parenthesisTracker.append (0);
-        parenthesisIterator++;
+      while (token == "(") {
+        if (parenthesisTracker.size () == 0) {
+          parenthesisTracker.append (0);
+        } else {
+          parenthesisTracker.append (0);
+          parenthesisIterator++;
+        }
+        input >> token;
       }
-      //Get the next token in the expression so evaluation can continue and the program isn't accessing a command object that isn't there
-      input >> token;
+    //Get the next token in the expression so evaluation can continue and the program isn't accessing a command object that isn't there
     //Evaluate closing parenthesis and handle the parenthesis array and iterator
     } else if (token == ")") {
     //The while loop addresses the case in which a subsequent operator is a parenthesis
       while (token == ")") {
         int stackPop = parenthesisTracker.get (parenthesisIterator);
-        for (stackPop; stackPop > 0; stackPop --) {
+        std::cout << "SP before: " << stackPop << std::endl;
+        for (stackPop; stackPop > 0; stackPop -= 1) {
+          std::cout << "SP after: " << stackPop << std::endl;
           tempNode = tempStack.top ();
           postfix.enqueue (tempNode);
           tempStack.pop ();
         }
+        std::cout << "SP after: " << stackPop << std::endl;
         parenthesisTracker.resize (parenthesisTracker.size () -1);
+        std::cout << "PI before: " << parenthesisIterator << std::endl;
         if (parenthesisIterator != 0) {
           parenthesisIterator -= 1;
+          std::cout << "PI after: " << parenthesisIterator << std::endl;
         }
         input >> token;
+        if (input.eof ()) {
+          break;
+        }
       }
     }
     //Utilizes the Tree builder to build Nodes for the tree based upon input 
