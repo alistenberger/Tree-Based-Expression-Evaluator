@@ -8,7 +8,7 @@ Expr_Tree::Expr_Tree (void)
 
 Expr_Tree::~Expr_Tree (void)
 {
-  //nothing here
+  //Nothing here
 }
 
 void Expr_Tree::set_Head_Node (Expr_Node * node)

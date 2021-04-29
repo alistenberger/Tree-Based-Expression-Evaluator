@@ -2,6 +2,9 @@
 #define _PRINT_INORDER_EXPRESSION_H_
 
 #include "Expr_Node_Visitor.h"
+#include <iostream>
+
+//I'm not sure if this is a requirement or not as I saw it in the slides, but it isn't mentioned in the assignment document
 
 class Print_Inorder_Expression : public Expr_Node_Visitor { 
 public: 

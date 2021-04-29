@@ -10,9 +10,10 @@ public:
   Binary_Expr_Node (void);
 
   virtual ~Binary_Expr_Node (void); 
-  // ... 
+  
   virtual int eval (void) = 0;
-
+  
+  //Accepts visitor
   virtual void accept (Expr_Node_Visitor & v) = 0;
 
 	virtual Expr_Node * getLeft (void);

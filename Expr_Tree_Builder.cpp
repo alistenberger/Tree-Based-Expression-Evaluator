@@ -9,7 +9,7 @@ Expr_Tree_Builder::Expr_Tree_Builder (void)
 
 Expr_Tree_Builder::~Expr_Tree_Builder (void)
 {
-  delete this->tree_;
+  //Nothing here
 }
 
 void Expr_Tree_Builder::start_expression (void)
@@ -53,22 +53,12 @@ Modulus_Expr_Node * Expr_Tree_Builder::build_modulus_operator (void)
   return returnNode;
 }
 
-Expr_Node * Expr_Tree_Builder::build_open_parenthesis (void)
-{
-  //Not having parenthesis objects, delete. Was just on slides
-}
-
-Expr_Node * Expr_Tree_Builder::build_close_parenthesis (void)
-{
-  //Not having parenthesis objects, delete. Was just on slides
-} 
-
+//Takes the inputs from the calculator and builds the tree internal to the class
 void Expr_Tree_Builder::build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_Node *> & stack)
 {
   this->start_expression ();
   while (!postfix.is_empty ()) {
     Expr_Node * tempNode = postfix.dequeue ();
-    std::cout << "Precedence of dequeued element: " << tempNode->get_Precedence () << std::endl;
     if (tempNode->get_Precedence () == 0) {
       stack.push (tempNode);
     } else {
@@ -82,7 +72,6 @@ void Expr_Tree_Builder::build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_N
     }
   }
   Expr_Node * tempNode = stack.top ();
-  std::cout << "Top of stack: " << tempNode << std::endl;
   this->tree_->set_Head_Node (tempNode);
   stack.pop ();
 }

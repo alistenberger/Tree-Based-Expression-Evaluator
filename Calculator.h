@@ -19,7 +19,7 @@
 /**
  * @class Calculator
  *
- * A calculator which utilizes a Stack-Based Evaluator to calculate a given expression
+ * A calculator which utilizes a Tree-Based Evaluator to calculate a given expression
  */
 
 class Calculator
@@ -35,8 +35,8 @@ public:
    * Parses an infix expression to postfix format
    * 
    * @param[in]     infix     the infix format delineated by spaces (or QUIT)
-   * @param[in]     factory   the expression command factory responsible for generation of expression commands
-   * @param[in]     postfix   the array which will store the postfix expression
+   * @param[in]     builder   the tree builder responsible for building the tree
+   * @param[in]     postfix   the queue which will store the postfix expression to pass into the builder
    * 
    * @retval        returns true on successful completion
    */
@@ -45,32 +45,13 @@ public:
   /**
    * Evaluates a postfix expression utilizing a stack
    * 
-   * @param[in]     postfix   an array class object containing the postfix expression
+   * @param[in]     builder   The tree builder is passed in for evaluation
    * 
-   * @retval        returns true on successful completion
+   * @retval        result of the equation is returned upon successful evaluation
    */
   int evaluate_tree (Expr_Tree_Builder & builder);
 
-  /**
-   * Evaluates an input token and returns a Expression Command object
-   * 
-   * @param[in]     token     A string read in from user input
-   * @param[in]     factory   A factory for generating the Expression Command objects
-   * 
-   * @return        The expression command for the token
-   */
-  Expr_Node * evaluate_token (std::string token, Expr_Tree_Builder & builder);
-
-  /**
-   * Evaluates an input Expression command and sends it where it belongs
-   * 
-   * @param[in]     command     The Expression Command
-   * @param[in]     postfix     The array which will hold the postfix expression
-   * @param[in]     tempStack   The stack holding all of the operators until they can be moved to postfix array
-   * 
-   */
-  void evaluate_command (Expr_Node * node, Array <Expr_Node *> & postfix, Stack <Expr_Node *> * tempStack);
-
+  //Handles all of the operations in the order they need to be handled
   int run (void);
 };
 

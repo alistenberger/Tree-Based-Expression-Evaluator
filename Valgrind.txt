@@ -1,0 +1,384 @@
+alistenberger@DESKTOP-2EAMK2Q:~/csci36300/project4$ valgrind --leak-check=yes ./assignment4
+==796== Memcheck, a memory error detector
+==796== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==796== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==796== Command: ./assignment4
+==796==
+==796== error calling PR_SET_PTRACER, vgdb might block
+Please enter an expression to be evaluated or type 'QUIT' to exit:
+5 + 3
+
+Processing...
+
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcad50 is 0 bytes inside a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CEDD: Base_Array (Base_Array.cpp:8)
+==796==    by 0x10CEDD: Array<Expr_Node*>::Array() (Array.cpp:16)
+==796==    by 0x10C4F4: Queue (Queue.cpp:7)
+==796==    by 0x10C4F4: Calculator::run() (Calculator.cpp:133)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10C007: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:77)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcada0 is 0 bytes inside a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CEDD: Base_Array (Base_Array.cpp:8)
+==796==    by 0x10CEDD: Array<Expr_Node*>::Array() (Array.cpp:16)
+==796==    by 0x10BC51: Stack (Stack.cpp:14)
+==796==    by 0x10BC51: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:22)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Invalid read of size 8
+==796==    at 0x10CC76: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:129)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcae88 is 0 bytes after a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Invalid read of size 8
+==796==    at 0x10CC86: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:126)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10C10F: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:102)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcafe0 is 0 bytes after a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10C10F: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:102)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcafd0 is 0 bytes inside a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 0
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcad00 is 0 bytes inside a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CEDD: Base_Array (Base_Array.cpp:8)
+==796==    by 0x10CEDD: Array<Expr_Node*>::Array() (Array.cpp:16)
+==796==    by 0x10C4D9: Stack (Stack.cpp:14)
+==796==    by 0x10C4D9: Calculator::run() (Calculator.cpp:131)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 0
+==796== Invalid read of size 8
+==796==    at 0x10CC76: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:129)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcb228 is 0 bytes after a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 1
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10DFAB: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:72)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcb320 is 0 bytes inside a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Top of stack: 0x4dcaed0
+
+Answer to equation: 5 + 3 is: 8
+
+Please enter an expression to be evaluated or type 'QUIT' to exit:
+5 + 3 * 2
+
+Processing...
+
+==796== Invalid read of size 8
+==796==    at 0x10CC76: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:129)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10C007: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:77)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcb838 is 0 bytes after a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10C007: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:77)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Invalid read of size 8
+==796==    at 0x10CC86: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:126)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcb8e0 is 0 bytes after a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 0
+Precedence of dequeued element: 0
+Precedence of dequeued element: 0
+==796== Invalid read of size 8
+==796==    at 0x10CC86: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:126)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcbed0 is 0 bytes after a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10E048: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:64)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 2
+Precedence of dequeued element: 1
+Top of stack: 0x4dcb7d0
+
+Answer to equation: 5 + 3 * 2 is: 11
+
+Please enter an expression to be evaluated or type 'QUIT' to exit:
+( 5 + 3 ) * 2
+
+Processing...
+
+==796== Invalid read of size 4
+==796==    at 0x10CD08: Array<int>::resize(unsigned long) (Array.cpp:129)
+==796==    by 0x10CDD1: Array<int>::append(int) (Array.cpp:234)
+==796==    by 0x10BCEF: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:31)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcc600 is 0 bytes after a block of size 0 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CF65: Base_Array<int>::Base_Array(unsigned long) (Base_Array.cpp:19)
+==796==    by 0x10BC69: Array (Array.cpp:27)
+==796==    by 0x10BC69: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:23)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CD20: Array<int>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CDD1: Array<int>::append(int) (Array.cpp:234)
+==796==    by 0x10BCEF: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:31)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcc600 is 0 bytes after a block of size 0 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CF65: Base_Array<int>::Base_Array(unsigned long) (Base_Array.cpp:19)
+==796==    by 0x10BC69: Array (Array.cpp:27)
+==796==    by 0x10BC69: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:23)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Invalid read of size 8
+==796==    at 0x10CC86: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:126)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BDF5: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:45)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcc840 is 0 bytes after a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BDF5: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:45)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcc830 is 0 bytes inside a block of size 16 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 0
+Precedence of dequeued element: 0
+Precedence of dequeued element: 1
+Precedence of dequeued element: 0
+Precedence of dequeued element: 2
+Top of stack: 0x4dcc980
+
+Answer to equation: ( 5 + 3 ) * 2 is: 16
+
+Please enter an expression to be evaluated or type 'QUIT' to exit:
+( 5 + 3 ) * ( 5 + 3 ) - 4
+
+Processing...
+
+==796== Invalid read of size 8
+==796==    at 0x10CC86: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:126)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10C08A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:85)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcdae0 is 0 bytes after a block of size 32 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10C08A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:85)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcdac0 is 0 bytes inside a block of size 32 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Mismatched free() / delete / delete []
+==796==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC90: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:131)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10C07D: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:89)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dcd9d0 is 0 bytes inside a block of size 8 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE9A: append (Array.cpp:234)
+==796==    by 0x10CE9A: Stack<Expr_Node*>::push(Expr_Node*) (Stack.cpp:48)
+==796==    by 0x10C007: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:77)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== Invalid read of size 8
+==796==    at 0x10CC76: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:129)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10C10F: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:102)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==  Address 0x4dce0d8 is 0 bytes after a block of size 72 alloc'd
+==796==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10CC5C: Array<Expr_Node*>::resize(unsigned long) (Array.cpp:125)
+==796==    by 0x10CE5A: Queue<Expr_Node*>::enqueue(Expr_Node*) (Queue.cpp:65)
+==796==    by 0x10BF9A: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:72)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+Precedence of dequeued element: 0
+Precedence of dequeued element: 0
+Precedence of dequeued element: 1
+Precedence of dequeued element: 0
+Precedence of dequeued element: 2
+Precedence of dequeued element: 0
+Precedence of dequeued element: 1
+Precedence of dequeued element: 0
+Precedence of dequeued element: 0
+Precedence of dequeued element: 1
+Top of stack: 0x4dcdec0
+
+Answer to equation: ( 5 + 3 ) * ( 5 + 3 ) - 4  is: 0
+
+Please enter an expression to be evaluated or type 'QUIT' to exit:
+QUIT
+==796==
+==796== HEAP SUMMARY:
+==796==     in use at exit: 544 bytes in 27 blocks
+==796==   total heap usage: 210 allocs, 183 frees, 85,006 bytes allocated
+==796==
+==796== 160 (32 direct, 128 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 6
+==796==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10DD15: Expr_Tree_Builder::build_add_operator() (Expr_Tree_Builder.cpp:28)
+==796==    by 0x10BE67: Calculator::infix_to_postfix(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Expr_Tree_Builder&, Queue<Expr_Node*>&) (Calculator.cpp:60)
+==796==    by 0x10C512: Calculator::run() (Calculator.cpp:134)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== 384 (32 direct, 352 indirect) bytes in 4 blocks are definitely lost in loss record 6 of 6
+==796==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==796==    by 0x10DC8E: Expr_Tree_Builder::start_expression() (Expr_Tree_Builder.cpp:17)
+==796==    by 0x10DE93: Expr_Tree_Builder::build_Tree(Queue<Expr_Node*>&, Stack<Expr_Node*>&) (Expr_Tree_Builder.cpp:59)
+==796==    by 0x10C524: Calculator::run() (Calculator.cpp:135)
+==796==    by 0x10B656: main (Main.cpp:19)
+==796==
+==796== LEAK SUMMARY:
+==796==    definitely lost: 64 bytes in 5 blocks
+==796==    indirectly lost: 480 bytes in 22 blocks
+==796==      possibly lost: 0 bytes in 0 blocks
+==796==    still reachable: 0 bytes in 0 blocks
+==796==         suppressed: 0 bytes in 0 blocks
+==796==
+==796== For lists of detected and suppressed errors, rerun with: -s
+==796== ERROR SUMMARY: 92 errors from 21 contexts (suppressed: 0 from 0)

@@ -25,8 +25,6 @@ public:
   virtual Multiply_Expr_Node * build_multiply_operator (void);
   virtual Divide_Expr_Node * build_divide_operator (void );
   virtual Modulus_Expr_Node * build_modulus_operator (void);
-  virtual Expr_Node * build_open_parenthesis (void); 
-  virtual Expr_Node * build_close_parenthesis (void); 
   void build_Tree (Queue <Expr_Node *> & postfix, Stack <Expr_Node *> & stack);
   Expr_Tree * get_expression (void);
 private: 

@@ -14,8 +14,6 @@ public:
   virtual Multiply_Expr_Node * build_multiply_operator (void) = 0;
   virtual Divide_Expr_Node * build_divide_operator (void )= 0;
   virtual Modulus_Expr_Node * build_modulus_operator (void) = 0;
-  virtual Expr_Node * build_open_parenthesis (void) = 0; 
-  virtual Expr_Node * build_close_parenthesis (void) = 0; 
   virtual Expr_Tree * get_expression (void) = 0; 
 }; 
 
